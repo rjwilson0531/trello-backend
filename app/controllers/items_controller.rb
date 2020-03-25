@@ -7,7 +7,12 @@ class ItemsController < ApplicationController
     end
 
     def create
-        puts "Hit create method in item_controller. Look at the params hash"
-        puts params unless !params
+        item = Item.create(title: params["title"], content: params["content"], card_id: params["card_id"] )
+        render json: item.to_json(
+            :except => [:created_at, :updated_at]
+        )
+    end
+
+    def destroy
     end
 end
