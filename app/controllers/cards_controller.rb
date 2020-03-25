@@ -20,7 +20,9 @@ class CardsController < ApplicationController
     end
 
     def create
-        puts "Hit create method in card_controller. Look at the params hash"
-        puts params unless !params
+        card = Card.create(title: params["title"])
+        render json: card.to_json(
+            :except => [:created_at, :updated_at]
+        )
     end
 end
