@@ -15,4 +15,9 @@ class ItemsController < ApplicationController
 
     def destroy
     end
+
+    def update
+        item = Item.find(params["id"])
+        item.update(params.permit(:card_id))
+    end
 end
