@@ -25,4 +25,9 @@ class CardsController < ApplicationController
             :except => [:created_at, :updated_at]
         )
     end
+
+    def destroy
+        card = Card.find(params["card_id"])
+        card.destroy
+    end
 end
