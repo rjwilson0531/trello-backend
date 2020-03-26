@@ -1,6 +1,7 @@
 puts "Seeding data"
-DatabaseCleaner.clean_with(:truncation)
-
+# DatabaseCleaner.clean_with(:truncation)
+Item.destroy_all
+Card.destroy_all
 card1 = Card.create(title:"To do")
 card2 = Card.create(title:"In progress")
 card3 = Card.create(title:"Complete")
